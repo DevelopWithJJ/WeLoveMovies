@@ -6,9 +6,7 @@ require("dotenv").config();
 //   DATABASE_URL = "postgresql://postgres@localhost/postgres",
 // } = process.env;
 
-const {
-  DATABASE_URL = "postgres://tqrzaddh:x1C9GTcK3IPaXxS34yvGRU_20n72_RAE@chunee.db.elephantsql.com/tqrzaddh",
-} = process.env;
+const { DATABASE_URL } = process.env;
 
 module.exports = {
   development: {
