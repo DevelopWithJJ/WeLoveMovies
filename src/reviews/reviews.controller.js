@@ -40,7 +40,8 @@ async function reviewExists(req, res, next) {
 }
 
 async function list(req, res) {
-  const data = await service.list();
+  const { movieId } = req.params;
+  const data = await service.list(movieId);
   res.json({ data });
 }
 
@@ -61,7 +62,8 @@ function read(req, res) {
 }
 
 async function destroy(req, res, next) {
-  await service.delete(res.locals.review.review_id);
+  const { review } = res.locals;
+  await service.delete(review.review_id);
   res.sendStatus(204);
 }
 

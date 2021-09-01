@@ -17,13 +17,13 @@ function addCriticsToReviews(review) {
 }
 
 function list(movie_id) {
-  return knex("reviews")
-    .join("critics as c", "r.review_id", "c.critic_id")
+  return knex("reviews as r")
+    .join("critics as c", "r.critic_id", "c.critic_id")
     .select("r.*", "c.*")
     .where({ movie_id })
     .then((data) => {
       return data.map((item) => {
-        return addCritic(item);
+        return addCritics(item);
       });
     });
 }
