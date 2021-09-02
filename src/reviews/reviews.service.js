@@ -9,7 +9,7 @@ const addCritics = mapProperties({
 
 function addCriticsToReviews(review) {
   return knex("reviews as r")
-    .select("*")
+    .select()
     .join("critics as c", "r.critic_id", "c.critic_id")
     .where({ "r.review_id": review.review_id })
     .first()
